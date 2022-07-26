@@ -3,7 +3,7 @@
 use App\Http\Controllers\StatusItemsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ItemController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,3 +25,7 @@ Route::post("/status/new",[StatusItemsController::class,'create']);
 Route::get("/status/{id}",[StatusItemsController::class,'getById']);
 Route::delete("/status/{id}/delete",[StatusItemsController::class,'destroy']);
 Route::put("/status/{id}/edit",[StatusItemsController::class,'update']);
+
+
+Route::get("/item",[ItemController::class,'getAll']);
+Route::get("/item/{id}",[ItemController::class,'getById']);

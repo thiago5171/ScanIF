@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StatusItems;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\StatusItem;
+use Illuminate\Support\Facades\DB;
 
 
 /**
@@ -16,113 +18,68 @@ use App\Models\StatusItem;
 
 class ItemController extends Controller
 {
-       /**
-     * Display a listing of the resource.
-     *
-     * @param  Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
+    public function getAll()
     {
-        return view('pages.items.index', ['records' => Item::paginate(10)]);
-    }    /**
-     * Display the specified resource.
-     *
-     * @param  Request  $request
-     * @param  Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Request $request, Item $item)
-    {
-        return view('pages.items.show', [
-                'record' =>$item,
-        ]);
+        return DB::table('items')
+            ->join('status_items','items.status_id','=','status_items.id')
+            ->select('items.*','status_items.*')->get();
+    }
 
-    }    /**
-     * Show the form for creating a new resource.
-     *
-     * @param  Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+    public function getById($id)
+    {
+        return Item::where("id", "=", $id)->first();
+    }
+
     public function create(Request $request)
     {
-		$status_items = StatusItem::all(['id']);
+        $item = new Item();
+        $item->tombamento = $request->tombamento;
+        $item->denominacao = $request->denominacao;
+        $item->termo = $request->termo;
+        $item->valor = $request->valor;
+        $item->tomb_antigo = $request->tomb_antigo;
+        $item->estado = $request->estado;
+        $item->situacao = $request->situacao;
+        $item->n_serie = $request->n_serie;
+        $item->observacao = $request->observacao;
+        $item->status_id = $request->status_id;
 
-        return view('pages.items.create', [
-            'model' => new Item,
-			"status_items" => $status_items,
 
-        ]);
-    }    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $model=new Item;
-        $model->fill($request->all());
-
-        if ($model->save()) {
-            
-            session()->flash('app_message', 'Item saved successfully');
-            return redirect()->route('items.index');
-            } else {
-                session()->flash('app_message', 'Something is wrong while saving Item');
-            }
-        return redirect()->back();
-    } /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  Request  $request
-     * @param  Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request, Item $item)
-    {
-		$status_items = StatusItem::all(['id']);
-
-        return view('pages.items.edit', [
-            'model' => $item,
-			"status_items" => $status_items,
-
-            ]);
-    }    /**
-     * Update a existing resource in storage.
-     *
-     * @param  Request  $request
-     * @param  Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request,Item $item)
-    {
-        $item->fill($request->all());
 
         if ($item->save()) {
-            
-            session()->flash('app_message', 'Item successfully updated');
-            return redirect()->route('items.index');
-            } else {
-                session()->flash('app_error', 'Something is wrong while updating Item');
-            }
-        return redirect()->back();
-    }    /**
-     * Delete a  resource from  storage.
-     *
-     * @param  Request  $request
-     * @param  Item  $item
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
-     */
-    public function destroy(Request $request, Item $item)
-    {
-        if ($item->delete()) {
-                session()->flash('app_message', 'Item successfully deleted');
-            } else {
-                session()->flash('app_error', 'Error occurred while deleting Item');
-            }
+            return response()->json([$item], 201);
+        }
+        return response()->json(["message"=>"Erro ao criar status"], 500);
+        ;
 
-        return redirect()->back();
     }
+//
+//    public function update(Request $request, $id)
+//    {
+//        $status = StatusItems::find($id);
+//        $status->sigla = $request->sigla;
+//        $status->nome = $request->nome;
+//
+//        if ($status->save()) {
+//            return response()->json([], 204);
+//        }
+//        return response()->json(["message"=>"Erro ao editar status"], 500);
+//
+//
+//    }
+//
+//    public function destroy(Request $request, $id)
+//    {
+//        $status = StatusItems::find($id);
+//
+//        if ($status->delete()) {
+//            return response()->json([], 204);
+//
+//        }
+//
+//        return response()->json(["message"=>"Erro ao deletar status"], 500);
+//
+//
+//    }
 }

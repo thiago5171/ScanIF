@@ -62,3 +62,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+o USUARIO IRA INSERIR A CADA INVENTARIO UM ARQUIVO CSV NO QUAL CONSTARA TODOS OS ITENS CONSTADOS NO SIPAC, ESSES DADOS SERAO INSERIDOS EM UM BANCO NOSQL, CADA ROW SERA UM SALVO EM UM ARQUIVO DIFERENTE
+
+DESSE MODO A COMISSAO IRA ENTRAR NO APLICATIVO, INSERIR O CODIGO DE TOMBAMENTO ATRAVES DO QR CODE OU MANUALMENTE E , ALEM DISSO TAMBEM IRA COLOCAR "ESTADO DO BEM"  "SITUAÇÃO" E " TOMBAMENTO ANTIGO" CASO HAJA
+
+A LOCALIDADE SERÁ COLOCADA ANTES  DE COMEÇAR A ENVIAR OS ITENS PARA VALIDAÇÃO NO BACK,
+
+SENDO ASSIM, O DADO DE CADA ITEM SERA ENVIADO PARA O BACK, ELE IRA BUSCAR NO BANCO NOSQL E IRA PEGAR OS DADOS REAPROVEITAVEL do NOSLQ E ENTAO CADASTRAR NO SQL COM O NOVO STATUS E OS DADOS ATUALIZADOS
+
+
+1- bens que estao na lista e estao na sala
+2- estao na lista mas nao esta na sala
+3- achou na sala mas não esta na lista , porem tem identificaçao
+4- achou na sala mas não esta na lista , porem  nao tem identificacao 
