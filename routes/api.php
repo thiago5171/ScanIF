@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StatusItemsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get("/status",[StatusItemsController::class,'getAll']);
+Route::post("/status/new",[StatusItemsController::class,'create']);
+Route::get("/status/{id}",[StatusItemsController::class,'getById']);
+Route::delete("/status/{id}/delete",[StatusItemsController::class,'destroy']);
+Route::put("/status/{id}/edit",[StatusItemsController::class,'update']);

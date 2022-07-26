@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ea6e37b9df13f57393d506f3e6b0b46",
+    "content-hash": "44b0f28456af4f15835b3a53f0e5313c",
     "packages": [
         {
             "name": "brick/math",
@@ -140,6 +140,107 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.1"
             },
             "time": "2021-08-13T13:06:58+00:00"
+        },
+        {
+            "name": "digitaldream/dbreader",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitaldreams/dbreader.git",
+                "reference": "54bfe8e024a91e536d629bf2a04e3adc6a9ef496"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitaldreams/dbreader/zipball/54bfe8e024a91e536d629bf2a04e3adc6a9ef496",
+                "reference": "54bfe8e024a91e536d629bf2a04e3adc6a9ef496",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DbReader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tuhin",
+                    "email": "digitaldreams40@gmail.com"
+                }
+            ],
+            "description": "Database Reader",
+            "support": {
+                "issues": "https://github.com/digitaldreams/dbreader/issues",
+                "source": "https://github.com/digitaldreams/dbreader/tree/1.4"
+            },
+            "time": "2017-09-18T17:06:51+00:00"
+        },
+        {
+            "name": "digitaldream/laracrud",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitaldreams/laracrud.git",
+                "reference": "2353135b833c9990887ab88f7f46f0a089cdb745"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitaldreams/laracrud/zipball/2353135b833c9990887ab88f7f46f0a089cdb745",
+                "reference": "2353135b833c9990887ab88f7f46f0a089cdb745",
+                "shasum": ""
+            },
+            "require": {
+                "digitaldream/dbreader": "~1.0",
+                "laravel/framework": ">=5.5",
+                "php": ">=7.0.0"
+            },
+            "suggest": {
+                "dingo/api": "To make API",
+                "intervention/image": "For Image",
+                "tymon/jwt-auth": "For API authentication"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaraCrud\\LaraCrudServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaraCrud\\": "src/lara-crud/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tuhin Bepari",
+                    "email": "digitaldreams40@gmail.com",
+                    "homepage": "http://www.tuhinbepari.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Do you have a well structed database and you want to make a Laravel Application on top of it. By using this tools you can generate Models which have necessary methods and property, Request class with rules, generate route from controllers method and its parameter and full features form with validation error message and more with a single line of command",
+            "homepage": "https://github.com/digitaldreams/laracrud",
+            "keywords": [
+                "code generator",
+                "crud",
+                "laravel",
+                "laravel code generator"
+            ],
+            "support": {
+                "issues": "https://github.com/digitaldreams/laracrud/issues",
+                "source": "https://github.com/digitaldreams/laracrud/tree/master"
+            },
+            "time": "2020-01-20T09:31:39+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1601,16 +1702,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.7.0",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "5579edf28aee1190a798bfa5be8bc16c563bd524"
+                "reference": "720488632c590286b88b80e62aa3d3d551ad4a50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5579edf28aee1190a798bfa5be8bc16c563bd524",
-                "reference": "5579edf28aee1190a798bfa5be8bc16c563bd524",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/720488632c590286b88b80e62aa3d3d551ad4a50",
+                "reference": "720488632c590286b88b80e62aa3d3d551ad4a50",
                 "shasum": ""
             },
             "require": {
@@ -1630,11 +1731,10 @@
                 "guzzlehttp/psr7": "^2.2",
                 "mongodb/mongodb": "^1.8",
                 "php-amqplib/php-amqplib": "~2.4 || ^3",
-                "php-console/php-console": "^3.1.3",
                 "phpspec/prophecy": "^1.15",
                 "phpstan/phpstan": "^0.12.91",
                 "phpunit/phpunit": "^8.5.14",
-                "predis/predis": "^1.1",
+                "predis/predis": "^1.1 || ^2.0",
                 "rollbar/rollbar": "^1.3 || ^2 || ^3",
                 "ruflin/elastica": "^7",
                 "swiftmailer/swiftmailer": "^5.3|^6.0",
@@ -1654,7 +1754,6 @@
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
                 "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
-                "php-console/php-console": "Allow sending log messages to Google Chrome",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
@@ -1689,7 +1788,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.7.0"
+                "source": "https://github.com/Seldaek/monolog/tree/2.8.0"
             },
             "funding": [
                 {
@@ -1701,7 +1800,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-09T08:59:12+00:00"
+            "time": "2022-07-24T11:55:47+00:00"
         },
         {
             "name": "nesbot/carbon",
