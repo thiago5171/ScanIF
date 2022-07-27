@@ -15,14 +15,13 @@ use Illuminate\Support\Facades\DB;
  *
  * @author Tuhin Bepari <digitaldreams40@gmail.com>
  */
-
 class ItemController extends Controller
 {
     public function getAll()
     {
         return DB::table('items')
-            ->join('status_items','items.status_id','=','status_items.id')
-            ->select('items.*','status_items.*')->get();
+            ->join('status_items', 'items.status_id', '=', 'status_items.id')
+            ->select('items.*', 'status_items.*')->get();
     }
 
 
@@ -42,16 +41,16 @@ class ItemController extends Controller
         $item->estado = $request->estado;
         $item->situacao = $request->situacao;
         $item->n_serie = $request->n_serie;
+        $item->localidade = $request->localidade;
         $item->observacao = $request->observacao;
         $item->status_id = $request->status_id;
 
-
-
         if ($item->save()) {
             return response()->json([$item], 201);
+        } else {
+            return response()->json(["message" => "Erro ao criar item"], 500);
         }
-        return response()->json(["message"=>"Erro ao criar status"], 500);
-        ;
+
 
     }
 //

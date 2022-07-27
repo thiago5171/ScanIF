@@ -4,6 +4,7 @@ use App\Http\Controllers\StatusItemsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,12 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get("/status",[StatusItemsController::class,'getAll']);
-Route::post("/status/new",[StatusItemsController::class,'create']);
-Route::get("/status/{id}",[StatusItemsController::class,'getById']);
-Route::delete("/status/{id}/delete",[StatusItemsController::class,'destroy']);
-Route::put("/status/{id}/edit",[StatusItemsController::class,'update']);
+Route::get("/status", [StatusItemsController::class, 'getAll']);
+Route::post("/status/new", [StatusItemsController::class, 'create']);
+Route::get("/status/{id}", [StatusItemsController::class, 'getById']);
+Route::delete("/status/{id}/delete", [StatusItemsController::class, 'destroy']);
+Route::put("/status/{id}/edit", [StatusItemsController::class, 'update']);
 
 
-Route::get("/item",[ItemController::class,'getAll']);
-Route::get("/item/{id}",[ItemController::class,'getById']);
+Route::get("/item", [ItemController::class, 'getAll']);
+Route::post("/item/new", [ItemController::class, 'create']);
+Route::get("/item/{id}", [ItemController::class, 'getById']);

@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('estado');
             $table->string('situacao');
             $table->string('n_serie');
-            $table->string('obsercao');
+            $table->string('observacao');
+            $table->string('localidade');
             $table->timestamps();
 
             $table->foreignId('status_id');
