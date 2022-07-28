@@ -95,7 +95,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_URI', 'mongodb+srv://root:5jy3ud6Kf0c4FcRI@<atlas-cluster-uri>/ScanIfCluster?retryWrites=true&w=majority'),
+            'dsn' => env('DB_URI', 'mongodb://root:5jy3ud6Kf0c4FcRI@45.175.228.221/ScanIfCluster?retryWrites=true&w=majority'),
             'database' => 'myappdb',
         ],
 
