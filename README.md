@@ -72,7 +72,7 @@ A LOCALIDADE SERÁ COLOCADA ANTES  DE COMEÇAR A ENVIAR OS ITENS PARA VALIDAÇÃ
 SENDO ASSIM, O DADO DE CADA ITEM SERA ENVIADO PARA O BACK, ELE IRA BUSCAR NO BANCO NOSQL E IRA PEGAR OS DADOS REAPROVEITAVEL do NOSLQ E ENTAO CADASTRAR NO SQL COM O NOVO STATUS E OS DADOS ATUALIZADOS
 
 
-1- bens que estao na lista e estao na sala
-2- estao na lista mas nao esta na sala
-3- achou na sala mas não esta na lista , porem tem identificaçao
+1- bens que estao na lista e estao na sala </br>
+2- estao na lista mas nao esta na sala </br>
+3- achou na sala mas não esta na lista , porem tem identificaçao </br>
 4- achou na sala mas não esta na lista , porem  nao tem identificacao 
