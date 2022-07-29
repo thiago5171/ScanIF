@@ -1,8 +1,0 @@
-    /**
-     * @param User $user
-     * @return bool
-     */
-    public function index(User $user)
-    {
-        return true;
-    }

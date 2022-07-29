@@ -1,4 +1,0 @@
-    /**
-    * casts
-    */
-    protected $casts=[@@columns@@];

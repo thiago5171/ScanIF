@@ -1,2 +1,0 @@
-$api->resource('@@table@@','@@controller@@');
-

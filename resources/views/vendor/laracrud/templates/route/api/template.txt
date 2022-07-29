@@ -1,5 +1,0 @@
-
-$api->@@method@@('@@path@@', [
-        'as' => '@@routeName@@',
-        'uses' => '@@action@@'
-]);

@@ -1,78 +1,58 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# SGCP - Backend
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este repositório guarda o código fonte do lado do servidor de uma aplicação que gerencia consultas, horários, anotações e publicações para o setor de Psicologia do IFAL, campus Arapiraca.
 
-## About Laravel
+Seu desenvolvimento consiste nas seguintes tecnologias:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP, expresso por meio do framework Laravel;
+- Docker, como gerenciador de serviços para a aplicação, em desenvolvimento;
+- MongoDB, como banco de dados para publicações e anotações;
+- PostgreSQL, como banco de dados para a gestão de usuários, consultas e horários.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para rodar o projeto localmente, siga os passos a seguir:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Passo 1:
 
-## Learning Laravel
+Verifique sua instalação do [docker](https://docs.docker.com/get-docker/) e do framework [laravel](https://laravel.com/docs/9.x/installation) antes de seguir os próximos passos.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Passo 2:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Abra o terminal na raiz do projeto e rode:
 
-## Laravel Sponsors
+```bash
+cd docker
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Passo 3:
 
-### Premium Partners
+Suba os serviços configurados, rodando:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+docker-compose up --build
+```
 
-## Contributing
+ou:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+docker-compose start
+```
 
-## Code of Conduct
+caso possua o container construído.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Passo 4:
 
-## Security Vulnerabilities
+Em seu terminal, dirija-se à parte do código fonte da aplicação, rodando:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cd ../src
+```
 
-## License
+### Passo 5:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Inicie o servidor da aplicação, rodando:
 
-o USUARIO IRA INSERIR A CADA INVENTARIO UM ARQUIVO CSV NO QUAL CONSTARA TODOS OS ITENS CONSTADOS NO SIPAC, ESSES DADOS SERAO INSERIDOS EM UM BANCO NOSQL, CADA ROW SERA UM SALVO EM UM ARQUIVO DIFERENTE
+```bash
+php artisan serve
+```
 
-DESSE MODO A COMISSAO IRA ENTRAR NO APLICATIVO, INSERIR O CODIGO DE TOMBAMENTO ATRAVES DO QR CODE OU MANUALMENTE E , ALEM DISSO TAMBEM IRA COLOCAR "ESTADO DO BEM"  "SITUAÇÃO" E " TOMBAMENTO ANTIGO" CASO HAJA
-
-A LOCALIDADE SERÁ COLOCADA ANTES  DE COMEÇAR A ENVIAR OS ITENS PARA VALIDAÇÃO NO BACK,
-
-SENDO ASSIM, O DADO DE CADA ITEM SERA ENVIADO PARA O BACK, ELE IRA BUSCAR NO BANCO NOSQL E IRA PEGAR OS DADOS REAPROVEITAVEL do NOSLQ E ENTAO CADASTRAR NO SQL COM O NOVO STATUS E OS DADOS ATUALIZADOS
-
-
-1- bens que estao na lista e estao na sala </br>
-2- estao na lista mas nao esta na sala </br>
-3- achou na sala mas não esta na lista , porem tem identificaçao </br>
-4- achou na sala mas não esta na lista , porem  nao tem identificacao 
+Você agora pode acessar todos os endpoints disponíveis, use com sabedoria! :)
