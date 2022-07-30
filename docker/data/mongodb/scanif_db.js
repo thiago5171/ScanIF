@@ -4,7 +4,7 @@ db.createUser({
 	roles: [
 		{
 			role: "readWrite",
-			db: "post_db",
+			db: "scanif_db",
 		},
 	],
 });
