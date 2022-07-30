@@ -37,4 +37,6 @@ Route::get("/item/{id}",[ItemController::class,'getById']);
 
 Route::get("/item/report/{tombamento}/tombamento",[ItemMongoController::class,'getItemByIdentifier']);
 Route::post("/item/report/new",[ItemMongoController::class,'store']);
+Route::get("/item/find/all",[ItemMongoController::class,'getList']);
+Route::post("/item/report/indexing",[ItemMongoController::class,'indexingReport']);
 

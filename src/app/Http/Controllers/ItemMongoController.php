@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Item;
 use App\Models\ItemMongo;
 use Illuminate\Http\Request;
-    use function PHPUnit\Framework\assertNotEmpty;
-use function PHPUnit\Framework\returnValue;
+use function MongoDB\BSON\fromJSON;
+use function MongoDB\BSON\toJSON;
 
 class ItemMongoController extends Controller
 {
@@ -48,4 +47,49 @@ class ItemMongoController extends Controller
         return response()->json([$item], 201);
 
     }
+
+    public function getList()
+    {
+        return ItemMongo::all();
+    }
+
+    public function indexingReport(Request $request){
+        $item=  json_decode($request->getContent());
+        $itemObject =new ItemMongo();
+$count =0;
+              foreach ($item  as $value){
+            $itemObject->tombamento = $value->tombamento;
+            $itemObject->denominacao = $value->denominacao;
+            $itemObject->termo = $value->termo;
+            $itemObject->valor = $value->valor;
+            $itemObject->tomb_antigo = $value->tomb_antigo;
+            $itemObject->estado = $value->estado;
+            $itemObject->localidade = $value->localidade;
+            $itemObject->situacao = $value->situacao;
+            $itemObject->n_serie = $value->n_serie;
+            $itemObject->observacao = $value->observacao;
+//                  print_r($itemObject->tombamento);
+//
+//                  print_r("------------".$count."----------\n");
+
+                  if($itemObject ->save()){
+                      print_r("FUNFOU");
+
+                  }
+                  $itemObject =new ItemMongo();
+
+                  $count +=1;
+
+//                  print_r($itemObject->tombamento);
+//                  print_r("------------".$count."----------\n");
+
+        }
+print_r($count);
+//        if(ItemMongo::save($item[0])){
+//            return response()->json([$item], 201);
+//        }else{
+            return response()->json(["message" => "erro"], 400);
+
+//        }
+}
 }
