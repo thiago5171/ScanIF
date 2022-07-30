@@ -31,10 +31,10 @@ Route::delete("/status/{id}/delete",[StatusItemsController::class,'destroy']);
 Route::put("/status/{id}/edit",[StatusItemsController::class,'update']);
 
 Route::post("/item/new",[ItemController::class,'create']);
-Route::post("/item/validator",[ItemController::class,'analyzeItemStatus']);
+Route::post("/item/validator",[ItemController::class,'analyzeItemWithRegister']);
 Route::get("/item",[ItemController::class,'getAll']);
 Route::get("/item/{id}",[ItemController::class,'getById']);
 
 Route::get("/item/report/{tombamento}/tombamento",[ItemMongoController::class,'getItemByIdentifier']);
 Route::post("/item/report/new",[ItemMongoController::class,'store']);
-Route::get("/item/report",[ItemMongoController::class,'getAllItems']);
+

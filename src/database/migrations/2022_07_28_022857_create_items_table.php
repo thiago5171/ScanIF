@@ -27,6 +27,7 @@ class CreateItemsTable extends Migration
             $table->string('situacao');
             $table->string('n_serie');
             $table->string('observacao');
+            $table->string('localidade');
             $table->timestamps();
 
             $table->foreignId('status_id');
