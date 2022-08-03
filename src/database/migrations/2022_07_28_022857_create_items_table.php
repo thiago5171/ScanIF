@@ -19,15 +19,15 @@ class CreateItemsTable extends Migration
 
             $table->id();
             $table->string('tombamento')->unique();
-            $table->string('denominacao');
-            $table->string('termo');
-            $table->float('valor');
-            $table->string('tomb_antigo');
-            $table->string('estado');
-            $table->string('situacao');
-            $table->string('n_serie');
-            $table->string('observacao');
-            $table->string('localidade');
+            $table->string('denominacao')->nullable();
+            $table->string('termo')->nullable();
+            $table->float('valor')->nullable();
+            $table->string('tomb_antigo')->nullable();
+            $table->string('estado')->nullable();
+            $table->string('situacao')->nullable();
+            $table->string('n_serie')->nullable();
+            $table->string('observacao')->nullable();
+            $table->string('localidade')->nullable();
             $table->timestamps();
 
             $table->foreignId('status_id');

@@ -15,8 +15,8 @@ class CreateStatusItemsTable extends Migration
     {
         Schema::create('status_items', function (Blueprint $table) {
             $table->id();
-            $table->string("nome");
-            $table->string("sigla");
+            $table->string("nome")->nullable();
+            $table->string("sigla")->nullable();
             $table->timestamps();
 
         });
