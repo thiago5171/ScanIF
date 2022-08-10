@@ -21,7 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('tombamento')->unique();
             $table->string('denominacao')->nullable();
             $table->string('termo')->nullable();
-            $table->float('valor')->nullable();
+            $table->string('valor')->nullable();
             $table->string('tomb_antigo')->nullable();
             $table->string('estado')->nullable();
             $table->string('situacao')->nullable();

@@ -34,9 +34,11 @@ Route::post("/item/new",[ItemController::class,'create']);
 Route::post("/item/validator",[ItemController::class,'analyzeItemWithRegister']);
 Route::get("/item",[ItemController::class,'getAll']);
 Route::get("/item/{id}",[ItemController::class,'getById']);
+Route::get("/item/{id}/status",[ItemController::class,'getByStatusId']);
 
 Route::get("/item/report/{tombamento}/tombamento",[ItemMongoController::class,'getItemByIdentifier']);
 Route::post("/item/report/new",[ItemMongoController::class,'store']);
 Route::get("/item/find/all",[ItemMongoController::class,'getList']);
 Route::post("/item/report/indexing",[ItemMongoController::class,'indexingReport']);
 
+Route::delete("/item/report/clear",[ItemMongoController::class,'clearDatabase']);

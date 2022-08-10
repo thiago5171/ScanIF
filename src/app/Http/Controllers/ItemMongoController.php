@@ -20,8 +20,6 @@ class ItemMongoController extends Controller
 
     }
 
-
-
     public  function getItemByIdentifierInternalUse($tombamento)
     {
        return ItemMongo::where('tombamento', '=', $tombamento)->first();
@@ -56,7 +54,6 @@ class ItemMongoController extends Controller
     public function indexingReport(Request $request){
         $item=  json_decode($request->getContent());
         $itemObject =new ItemMongo();
-$count =0;
               foreach ($item  as $value){
             $itemObject->tombamento = $value->tombamento;
             $itemObject->denominacao = $value->denominacao;
@@ -68,28 +65,26 @@ $count =0;
             $itemObject->situacao = $value->situacao;
             $itemObject->n_serie = $value->n_serie;
             $itemObject->observacao = $value->observacao;
-//                  print_r($itemObject->tombamento);
-//
-//                  print_r("------------".$count."----------\n");
+            $itemObject->save();
 
-                  if($itemObject ->save()){
-                      print_r("FUNFOU");
-
-                  }
-                  $itemObject =new ItemMongo();
-
-                  $count +=1;
-
-//                  print_r($itemObject->tombamento);
-//                  print_r("------------".$count."----------\n");
+            $itemObject =new ItemMongo();
 
         }
-print_r($count);
-//        if(ItemMongo::save($item[0])){
-//            return response()->json([$item], 201);
-//        }else{
-            return response()->json(["message" => "erro"], 400);
 
-//        }
+        return response()->json(["message" => "Items cadastrados"], 201);
+
 }
+
+
+    public  function clearDatabase()
+    {
+        if (ItemMongo::truncate()) {
+         return response()->json(["message" => "Items excluidos com sucesso"], 204);
+        }else{
+            return response()->json(["message" => "Erros ao excluir items"], 500);
+
+        }
+    }
+
+
 }
