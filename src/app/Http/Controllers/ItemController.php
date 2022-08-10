@@ -71,10 +71,9 @@ class ItemController extends Controller
         $item->situacao = $request->situacao;
         $item->tomb_antigo = $request->tomb_antigo;
         $item->estado = $request->estado;
+        $item->localidade = $itemFromMongo->localidade;
 
         if ($itemFromMongo != null) {
-
-            $item->localidade = $itemFromMongo->localidade;
             $item->denominacao = $itemFromMongo->denominacao;
             $item->termo = $itemFromMongo->termo;
             $item->valor = $itemFromMongo->valor;
@@ -82,23 +81,21 @@ class ItemController extends Controller
             $item->observacao = $itemFromMongo->observacao;
             $item->status_id = 1;
 
-                if ($item->save()) {
-                    $itemFromMongo->delete();
-                    return response()->json(["message" => "Item registrado"], 201);
-                }
-
-
-
-
+            if ($item->save()) {
+                $itemFromMongo->delete();
+                return response()->json(["message" => "Item registrado"], 201);
+            }
 
         }else{
             return response()->json(["message" => "Item não encontrado insira o restante dos dados para cadastrar o item"], 400);
         }
+    }
 
 
-
-        }
-
+    public function getByStatusId($id)
+    {
+        return Item::where("status_id", "=", $id);
+    }
 
 
 }
